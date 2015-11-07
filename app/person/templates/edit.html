@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <form class="form-horizontal" ng-submit="vm.saveContact()" novalidate>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div ng-if="vm.mode == 'create'">
+                        Create
+
+                        <button type="submit" ladda="vm.contacts.isSaving"
+                                class="btn btn-primary btn-sm pull-right">Create
+                        </button>
+                    </div>
+                    <div ng-if="vm.mode == 'edit'">
+                        Edit
+                        <div class="pull-right">
+                            <button type="submit" ladda="vm.contacts.isSaving"
+                                    class="btn btn-primary btn-sm">Save
+                            </button>
+                            &nbsp;
+                            <button type="submit" ng-click="vm.removeContact()"
+                                    ladda="vm.contacts.isDeleting" class="btn btn-danger btn-sm">Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-body">
+                    <ng-include src="'./person/templates/form.html'"></ng-include>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

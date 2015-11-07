@@ -1,0 +1,39 @@
+<div class="col-md-6">
+    <div class="well well-sm card">
+        <div class="row">
+            <div class="col-md-4">
+                <img ng-src="{{user.photo | defaultImage: './assets/images/default_profile.png'}}" alt=""
+                     class="img-rounded img-responsive "/>
+            </div>
+            <div class="col-md-8">
+                <div class="fav" ng-click="user.favorite = !user.favorite; vm.addFavorite(user)">
+                    <i class="fa fa-heart fa-2x faa-vertical animated-hover" ng-show="user.favorite"></i>
+                    <i class="fa fa-heart-o fa-2x faa-vertical animated-hover" ng-hide="user.favorite"></i>
+                </div>
+                <h4>{{user.name}}
+                    <i class="fa" ng-class="{'fa-female':user.sex == 'F', 'fa-male': user.sex == 'M'}"></i>
+                </h4>
+                <small>
+                    <i class="fa fa-map-marker"></i>
+                    {{user.city}}, {{user.country}}
+                </small>
+                <p>
+                    <i class="fa fa-envelope-o"></i>
+                    {{user.email}}
+                    <br>
+                    <i class="fa fa-gift"></i>
+                    {{user.birthdate | date:'longDate'}}
+                </p>
+                <button class="btn bt-sm btn-default" ui-sref="edit({email:user.email})">
+                    <i class="fa fa-pencil"></i>
+                    Edit
+                </button>
+                <button class="btn bt-sm btn-default" ng-click="vm.deleteUser(user)" ladda="vm.isDeleting"
+                        data-spinner-color="#333">
+                    <i class="fa fa-trash"></i>
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+node_modules/
+app/bower_components/
+.idea/
+.idea/encodings.xml
+
+*.xml
+
+.idea/encodings.xml
+
+.idea/jsLibraryMappings.xml
+
+*.xml
+
+.idea/libraries/contacts_node_modules.xml

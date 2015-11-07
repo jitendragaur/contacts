@@ -1,0 +1,23 @@
+{
+  "name": "contacts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jitendra Gaur",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-clean": "latest",
+    "gulp-connect": "latest",
+    "gulp-minify-css": "latest",
+    "gulp-minify-html": "latest",
+    "gulp-ngmin": "latest",
+    "gulp-rev": "latest",
+    "gulp-sass": "latest",
+    "gulp-uglify": "latest",
+    "gulp-usemin": "latest"
+  }
+}

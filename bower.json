@@ -1,0 +1,35 @@
+{
+  "name": "contacts",
+  "description": "",
+  "main": "app/index.html",
+  "authors": [
+    "Jitendra Gaur"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "http://jitendragaur.github.io/contacts",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.4.7",
+    "angular-auto-validate": "~1.19.0",
+    "angular-ladda": "~0.3.1",
+    "angular-loading-bar": "~0.8.0",
+    "angular-resource": "~1.4.7",
+    "angular-strap": "~2.3.5",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "angular": "~1.4.7",
+    "AngularJS-Toaster": "angularjs-toaster#~0.4.16",
+    "bootstrap-additions": "~0.3.1",
+    "font-awesome-animation": "~0.0.7",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "ngInfiniteScroll": "~1.2.1"
+  }
+}
