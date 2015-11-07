@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-5 pull-right">
+                <ul class="pagination pull-right">
+                    <li ng-class="{'active':vm.contactsLayout=='card'}">
+                        <a href="#" ng-click="vm.isFav= {favorite:''}; vm.contactsLayout = 'card'">
+                            <i class="fa fa-th"></i> Card Layout</a>
+                    </li>
+                    <li ng-class="{'active':vm.contactsLayout=='table'}">
+                        <a href="#" ng-click="vm.contactsLayout = 'table'">
+                            <i class="fa fa-th-list"></i> Table Layout</a>
+                    </li>
+                    <li ng-class="{'active':vm.contactsLayout=='fav'}">
+                        <a href="#" ng-click="vm.isFav= {favorite:true}; vm.contactsLayout = 'fav'">
+                            <i class="fa fa-heart"></i> Favourites</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div infinite-scroll="vm.loadMore()" infinite-scroll-distance="3">
+            <div ng-if="vm.contactsLayout == 'card' || vm.contactsLayout == 'fav'">
+                <business-card  class="card" user="person"
+                               ng-repeat="person in vm.contacts.persons
+                               | filter: vm.isFav
+                               track by person.id">
+                </business-card>
+            </div>
+
+            <table class="table table-bordered" ng-if="vm.contactsLayout == 'table'">
+                <thead>
+                <tr>
+                    <th class="col-1"></th>
+                    <th class="col-2">
+                        <div class="sortable">
+                            <span ng-click="vm.contacts.ordering = 'name'" class="fa fa-sort-asc"
+                                  aria-hidden="true"></span>
+                        <span ng-click="vm.contacts.ordering = '-name'" class="fa fa-sort-desc"
+                              aria-hidden="true"></span>
+                        </div>
+                        Name
+                    </th>
+                    <th class="col-3">
+                        <div class="sortable">
+                        <span ng-click="vm.contacts.ordering = 'email'" class="fa fa-sort-asc"
+                              aria-hidden="true"></span>
+                        <span ng-click="vm.contacts.ordering = '-email'" class="fa fa-sort-desc"
+                              aria-hidden="true"></span>
+                        </div>
+                        Email
+                    </th>
+                    <th class="col-4">Phone Number</th>
+                </tr>
+                </thead>
+                <tr ng-repeat="person in vm.contacts.persons track by person.id"
+                    ui-sref="edit({email:person.email})"
+                    ng-style="{'background-color': person.email == vm.contacts.selectedPerson.email ? '#CCC': ''}">
+                    <td>
+                        <img ng-src="{{person.photo | defaultImage: './assets/images/default_profile.png'}}" alt=""
+                             class="img-circle profile-photo">
+                    </td>
+                    <td>{{person.name}}</td>
+                    <td>{{person.email}}</td>
+                    <td>{{person.phonenumber}}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="alert alert-danger well" ng-if="vm.contacts.persons.length == 0 && !vm.contacts.isLoading">
+        <i class="fa fa-frown-o fa-2x"></i> Oops! No Contacts matched with <strong>"{{vm.contacts.search}}"</strong>
+    </div>
+</div>
+</div>
